@@ -1,0 +1,23 @@
+<div class="header__placeholder"></div>
+
+<header class="header page-padding flex--align-center flex--space-between"
+        [ngClass]="{'header--scrolled': scrolled}">
+  <div>
+    <h5 class="header__title">{{'header.title' | translate | async}}</h5>
+  </div>
+
+<!--  <div>-->
+<!--      <app-minified-main-search></app-minified-main-search>-->
+<!--  </div>-->
+
+  <div class="flex--align-center">
+    <app-language-selector></app-language-selector>
+
+    <app-button>Help</app-button>
+    <app-button>{{'header.sign-up' | translate | async}}</app-button>
+    <div class="header__log-in">
+      <app-button [elevated]="true">{{'header.sign-in' | translate | async}}</app-button>
+    </div>
+  </div>
+</header>
+

@@ -1,0 +1,54 @@
+@import "../../../../styles";
+
+.languages {
+  position: relative;
+
+  &__list {
+    position: absolute;
+    top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 16px;
+    padding: $border-radius 0;
+    border-radius: $border-radius;
+    background-color: white;
+  }
+}
+
+.language {
+  background-color: transparent;
+  transition: background-color 0.2s;
+  height: 42px;
+  padding: 0 16px;
+  width: 150px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color(grey-shade);
+  }
+
+  &--selected {
+    background-color: color(grey-shade);
+  }
+}
+
+.flag {
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.country {
+  font-size: 15px;
+  color: color(text-main);
+  margin-left: 8px;
+}
+
+.globe {
+  height: 18px;
+}
+
+.arrow {
+  height: 12px;
+  margin-left: 4px;
+}

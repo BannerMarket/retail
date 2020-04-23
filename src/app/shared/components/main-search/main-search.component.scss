@@ -1,0 +1,41 @@
+@import "../../../../styles";
+
+.search {
+  width: 100%;
+  border-radius: $border-radius;
+  border: solid 1px color(grey-shade);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  height: height(input);
+
+  &__divider {
+    content: '';
+    display: block;
+    height: 46px;
+    width: 1px;
+    background-color: color(input-border);
+  }
+
+  &__button {
+    height: 46px;
+    background-color: color(brand-main);
+    color: white;
+    width: 120px;
+    border-radius: $border-radius-medium;
+    margin: 0 12px 0 12px;
+    box-shadow: 0 0 0 rgba(255, 56, 92, 0.8);
+
+    transition: box-shadow 0.4s;
+
+    &:hover {
+      box-shadow: 0 0 8px rgba(255, 56, 92, 0.8);
+    }
+
+    svg {
+      fill: white;
+      height: 16px;
+      width: 16px;
+      margin-right: 6px;
+    }
+  }
+}

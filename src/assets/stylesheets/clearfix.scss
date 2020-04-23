@@ -1,0 +1,20 @@
+body, html,
+p, a, h1, h2, h3, h4, h4, h6,
+ul, li,
+div, span, header, button, input {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  font-family: regular-font, sans-serif;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}

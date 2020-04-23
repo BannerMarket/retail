@@ -1,0 +1,12 @@
+@import "../../styles";
+
+.search {
+  margin-top: 24px;
+
+  &__label {
+    margin-bottom: 16px;
+    span {
+      font-family: light-font, sans-serif;
+    }
+  }
+}

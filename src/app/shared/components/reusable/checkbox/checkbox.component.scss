@@ -1,0 +1,52 @@
+@import "../../../../../styles";
+
+:host {
+  width: 100%;
+
+  &:hover {
+    .checkbox {
+      border: solid 1px color(text-main);
+    }
+  }
+}
+
+.checkbox {
+  height: 24px;
+  width: 24px;
+  border-radius: $border-radius-small;
+  border: solid 1px color(text-placeholder);
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+
+  transition: border 0.2s ease-in-out;
+
+  &--active {
+    background-color: color(text-main);
+
+    &:after {
+      content: '';
+      display: block;
+      height: 10px;
+      width: 5px;
+      border-bottom: solid 2px white;
+      border-right: solid 2px white;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 3px;
+      pointer-events: none;
+    }
+  }
+
+  input {
+    height: 24px;
+    width: 24px;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.label {
+  margin-left: 16px;
+}

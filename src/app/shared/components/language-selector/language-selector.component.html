@@ -1,0 +1,23 @@
+<div class="languages">
+  <app-button (click)="toggleList()">
+    <img class="globe" src="../../../../assets/icons/globe-outline.svg" alt="language">
+    <img class="arrow" src="../../../../assets/icons/chevron-down-outline.svg" alt="arrow down">
+  </app-button>
+
+  <div *ngIf="displayList" class="languages__list">
+    <div class="language flex--align-center"
+         [ngClass]="{'language--selected': (selectedLanguage | async) === Language.ge}"
+         (click)="setLanguage(Language.ge)">
+      <div class="flag" style="background-image: url('../../../../assets/flags/ge.svg')"></div>
+      <p class="country">Georgian</p>
+    </div>
+
+    <div class="language flex--align-center"
+         [ngClass]="{'language--selected': (selectedLanguage | async) === Language.en}"
+         (click)="setLanguage(Language.en)">
+      <div class="flag" style="background-image: url('../../../../assets/flags/en.svg')"></div>
+      <p class="country">English</p>
+    </div>
+  </div>
+</div>
+

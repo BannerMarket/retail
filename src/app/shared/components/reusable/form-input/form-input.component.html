@@ -1,0 +1,31 @@
+<div class="input__wrapper flex--align-center"
+     [ngClass]="{
+                    'input__wrapper--focused': focused || highlighted,
+                    'input__wrapper--with-suggestions': withSuggestions && (focused || highlighted)
+                }"
+     (click)="formInput.focus()">
+
+  <div class="flex--fill flex--dir-col flex--space-between">
+    <label class="input__label">
+      {{label}}
+    </label>
+
+    <input class="input"
+           #formInput
+           [type]="type"
+           [placeholder]="placeholder"
+           [disabled]="disabled"
+           [readOnly]="readonly"
+           [ngModelOptions]="ngModelOptions"
+           [(ngModel)]="ngModel"
+           (input)="input.next($event)"
+           (keyup)="keyup.next($event)"
+           (click)="click.next($event)"
+           (focus)="focus.next($event)"
+           (blur)="blur.next($event)">
+  </div>
+
+  <button *ngIf="!isEmpty" class="clear flex--center" (click)="clearInput($event)">
+    <img src="../../../../../assets/icons/close-outline.svg" alt="">
+  </button>
+</div>

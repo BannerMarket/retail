@@ -1,0 +1,65 @@
+@import "../../../../../styles";
+
+.input {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: color(text-main);
+
+  &::placeholder {
+    font-size: 14px;
+    color: color(text-placeholder);
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: height(input);
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    padding: 16px 22px;
+    cursor: pointer;
+    border: solid 2px transparent;
+
+    transition: border 0.2s ease-in-out;
+
+    &:hover {
+      border: solid 2px color(input-border);
+    }
+
+    &--focused {
+      border: solid 2px color(text-main) !important;
+    }
+
+    &--with-suggestions {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__label {
+    text-transform: uppercase;
+    font-size: 10px;
+    color: color(text-main);
+    font-weight: 800;
+    padding-bottom: 4px;
+    pointer-events: none;
+  }
+}
+
+.clear {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: color(grey-shade);
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: color(input-border);
+  }
+
+  img {
+     height: 16px;
+  }
+}

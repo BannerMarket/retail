@@ -1,0 +1,19 @@
+<div class="location">
+  <app-form-input [label]="'location'"
+                  [placeholder]="'Enter city, place, street or id...'"
+                  [withSuggestions]="true"
+                  [(ngModel)]="location"
+                  (focus)="displaySuggestions(true)"
+                  (blur)="displaySuggestions(false, 200)"
+  ></app-form-input>
+
+  <div *ngIf="shouldDisplay" class="location__suggestions">
+    <div *ngFor="let suggestion of suggestions"
+         class="suggestion flex--align-center"
+         (click)="applySuggestion(suggestion.text)">
+      <div class="suggestion__type suggestion__type--{{suggestion.type}} flex--center"></div>
+      <p class="suggestion__text">{{suggestion.text}}</p>
+    </div>
+  </div>
+</div>
+

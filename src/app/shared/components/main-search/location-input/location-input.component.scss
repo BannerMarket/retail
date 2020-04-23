@@ -1,0 +1,69 @@
+@import "../../../../../styles";
+
+.location {
+  height: height(input);
+  position: relative;
+
+  &__suggestions {
+    width: 100%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 16px 0;
+    border: solid 1px color(grey-shade);
+    box-sizing: border-box;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    padding: 16px 0;
+  }
+}
+
+.suggestion {
+  width: 100%;
+  height: 64px;
+  box-sizing: border-box;
+  padding: 0 22px;
+  cursor: pointer;
+  background-color: white;
+
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: color(grey-shade);
+  }
+
+  &__type {
+    height: 48px;
+    width: 48px;
+    border-radius: $border-radius-medium;
+    background-color: color(grey-shade);
+    border: solid 1px color(input-border);
+    box-sizing: border-box;
+
+    &--banner {
+      &:after {
+        content: '';
+        display: block;
+        height: 20px;
+        width: 20px;
+        background-image: url("../../../../../assets/icons/image-sharp.svg");
+        background-size: cover;
+      }
+    }
+
+    &--location {
+      &:after {
+        content: '';
+        display: block;
+        height: 20px;
+        width: 20px;
+        background-image: url("../../../../../assets/icons/location-sharp.svg");
+        background-size: cover;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: normal;
+    font-size: 16px;
+    margin-left: 16px;
+  }
+}

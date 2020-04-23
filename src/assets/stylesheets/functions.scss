@@ -1,0 +1,16 @@
+@function map-get-safe($map, $key) {
+  @if (map-has-key($map, $key)) {
+    @return map-get($map, $key);
+  }
+
+  @error "Unknown `#{$key}` in `#{$map}`.";
+  @return null;
+}
+
+@function color($color) {
+  @return map-get($main_color, $color)
+}
+
+@function height($key) {
+  @return map-get($height, $key)
+}

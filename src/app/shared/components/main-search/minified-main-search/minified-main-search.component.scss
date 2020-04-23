@@ -1,0 +1,43 @@
+@import "../../../../../styles";
+
+.inputs {
+  height: 46px;
+  border-radius: $border-radius-medium;
+  box-shadow: rgba(0, 0, 0, 0.18) 0 1px 2px 0;
+  border: solid 1px color(input-border);
+  overflow: hidden;
+
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 8px;
+  }
+
+  &:active {
+    box-shadow: rgba(0, 0, 0, 0.18) 0 1px 2px 0;
+  }
+}
+
+.input {
+  height: 100%;
+  padding: 0 18px;
+  border-right: solid 1px color(input-border);
+  background-color: white;
+  font-family: light-font, sans-serif;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: color(grey-shade);
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+
+  svg {
+    height: 18px;
+    width: 18px;
+    fill: color(brand-main);
+  }
+}
