@@ -32,6 +32,13 @@ export class LanguageService {
       .pipe(map(dictionary => dictionary[key] ? dictionary[key] : ''));
   }
 
+  public translateArray(keys: Array<string>): Observable<Array<string>> {
+    return this.dictionary
+      .pipe(map(dictionary => {
+        return keys.map(key => dictionary[key] ? dictionary[key] : key);
+      }));
+  }
+
   public setLanguage(language: Language): void {
     if (language === this.selectedLanguage.getValue()) {
       return;

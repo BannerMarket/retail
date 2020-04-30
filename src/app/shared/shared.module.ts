@@ -8,9 +8,9 @@ import { FormInputComponent } from './components/reusable/form-input/form-input.
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainSearchComponent } from './components/main-search/main-search.component';
 import { LocationInputComponent } from './components/main-search/location-input/location-input.component';
-import { TagInputComponent } from './components/main-search/tag-input/tag-input.component';
 import { CheckboxComponent } from './components/reusable/checkbox/checkbox.component';
 import { MinifiedMainSearchComponent } from './components/main-search/minified-main-search/minified-main-search.component';
+import { CategoriesInputComponent } from './components/main-search/categories-input/categories-input.component';
 
 
 
@@ -23,9 +23,9 @@ import { MinifiedMainSearchComponent } from './components/main-search/minified-m
     FormInputComponent,
     MainSearchComponent,
     LocationInputComponent,
-    TagInputComponent,
     CheckboxComponent,
     MinifiedMainSearchComponent,
+    CategoriesInputComponent,
   ],
   imports: [
     CommonModule,
