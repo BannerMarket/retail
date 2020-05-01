@@ -19,7 +19,19 @@ export class CategorySelectionComponent implements OnInit, OnDestroy {
     this.subscribeToChanges();
   }
 
-  @Output() selected: EventEmitter<Array<Category>> = new EventEmitter<Array<Category>>();
+  @Input() set selected(categories: Array<Category>) {
+    if (this.categoriesFormGroup && Array.isArray(categories)) {
+      const selectedIds = new Set(categories.map(category => category._id));
+
+      Object.keys(this.categoriesFormGroup.controls)
+        .forEach(id => {
+          const control = this.categoriesFormGroup.controls[id];
+          control.patchValue(selectedIds.has(id));
+        });
+    }
+  }
+
+  @Output() select: EventEmitter<Array<Category>> = new EventEmitter<Array<Category>>();
 
   public _groups: Array<TreeNode<Category>>;
   public categoriesFormGroup: FormGroup;
@@ -59,7 +71,7 @@ export class CategorySelectionComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.categoriesFormGroup.valueChanges
       .subscribe(value => {
         this.order = this.getSelectedCategoryOrder(value, this.order);
-        this.selected.next(this.order.map(id => this.categories.find(category => category._id === id)));
+        this.select.next(this.order.map(id => this.categories.find(category => category._id === id)));
       }));
   }
 

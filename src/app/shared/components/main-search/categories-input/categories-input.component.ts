@@ -20,6 +20,7 @@ export class CategoriesInputComponent implements OnInit {
   public _result = '';
   public focused = false;
   public groups: Array<TreeNode<Category>>;
+  public _categories: Array<Category> = []
 
   @HostListener('document:click', ['$event'])
   clickOut(event) {
@@ -43,6 +44,7 @@ export class CategoriesInputComponent implements OnInit {
   }
 
   public onSelection(categories: Array<Category>): void {
+    this._categories = categories;
     this.categories.emit(categories);
 
     const categoryNames = categories.map(category => category.name);

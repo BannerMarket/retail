@@ -8,6 +8,6 @@
                   (clear)="clear()"></app-form-input>
 
   <div *ngIf="focused && groups" class="categories">
-    <app-category-selection [groups]="groups" (selected)="onSelection($event)"></app-category-selection>
+    <app-category-selection [groups]="groups" [selected]="_categories" (select)="onSelection($event)"></app-category-selection>
   </div>
 </div>
