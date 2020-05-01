@@ -1,0 +1,16 @@
+<form *ngIf="categoriesFormGroup" class="categories" [formGroup]="categoriesFormGroup">
+  <div *ngFor="let group of _groups" class="row">
+    <div class="col-sm-12">
+      <p class="group__title">{{group.data.name | translate | async}}</p>
+    </div>
+    <div *ngFor="let category of group.children" class="col-md-6 col-sm-12">
+      <div class="category flex--align-center">
+        <app-checkbox [label]="category.data.name | translate | async"
+                      [formControlName]="category.data._id"></app-checkbox>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="group--divider"></div>
+    </div>
+  </div>
+</form>

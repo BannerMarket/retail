@@ -1,0 +1,33 @@
+@import "../../../../../styles";
+
+.row {
+  margin: 0;
+
+  &:last-child {
+    .group--divider {
+      display: none;
+    }
+  }
+}
+
+.categories {
+  //width: 100%;
+}
+
+.category {
+  height: 48px;
+  box-sizing: border-box;
+  padding: 0 22px;
+}
+
+.group {
+  &__title {
+    font-size: 22px;
+    margin: 22px;
+  }
+  &--divider {
+    height: 1px;
+    background-color: color(input-border);
+    margin: 22px 22px 0 22px;
+  }
+}

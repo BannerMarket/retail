@@ -1,15 +1,5 @@
 @import "../../../../../styles";
 
-.row {
-  margin: 0;
-
-  &:last-child {
-    .group--divider {
-      display: none;
-    }
-  }
-}
-
 .category-input {
   height: height(input);
   position: relative;
@@ -25,22 +15,4 @@
   border-bottom-right-radius: $border-radius;
   padding: 16px 0;
   overflow-y: scroll;
-}
-
-.category {
-  height: 48px;
-  box-sizing: border-box;
-  padding: 0 22px;
-}
-
-.group {
-  &__title {
-    font-size: 22px;
-    margin: 22px;
-  }
-  &--divider {
-    height: 1px;
-    background-color: color(input-border);
-    margin: 22px 22px 0 22px;
-  }
 }

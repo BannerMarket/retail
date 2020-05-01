@@ -11,6 +11,7 @@ import { LocationInputComponent } from './components/main-search/location-input/
 import { CheckboxComponent } from './components/reusable/checkbox/checkbox.component';
 import { MinifiedMainSearchComponent } from './components/main-search/minified-main-search/minified-main-search.component';
 import { CategoriesInputComponent } from './components/main-search/categories-input/categories-input.component';
+import { CategorySelectionComponent } from './components/reusable/category-selection/category-selection.component';
 
 
 
@@ -26,6 +27,7 @@ import { CategoriesInputComponent } from './components/main-search/categories-in
     CheckboxComponent,
     MinifiedMainSearchComponent,
     CategoriesInputComponent,
+    CategorySelectionComponent,
   ],
   imports: [
     CommonModule,
