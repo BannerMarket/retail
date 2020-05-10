@@ -6,4 +6,6 @@ export class Urls {
 
   public static readonly CATEGORIES = 'categories';
 
+  public static readonly PLACE_SUGGESTIONS = 'places/autocomplete';
+
 }

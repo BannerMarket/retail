@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Category} from '../../../core/models/category.model';
 import {Directions} from '../../models/directions.model';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-main-search',
@@ -9,13 +10,17 @@ import {Directions} from '../../models/directions.model';
 })
 export class MainSearchComponent implements OnInit {
 
-  private lat: string | number;
-  private lng: string | number;
-  private categoryIds: string;
+  public lat: string | number;
+  public lng: string | number;
+  public categoryIds: string;
+
+  public sessiontoken = '';
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.sessiontoken = uuidv4();
+  }
 
   public setDirections(directions: Directions): void {
     this.lat = directions.lat;
@@ -28,5 +33,9 @@ export class MainSearchComponent implements OnInit {
       categories
         .map(category => category._id)
         .reduce((_categories, categoryId) => _categories + ',' + categoryId);
+  }
+
+  public search(): void {
+    this.sessiontoken = uuidv4();
   }
 }

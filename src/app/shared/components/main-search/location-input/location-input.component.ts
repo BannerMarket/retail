@@ -1,8 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MapSuggestionsService} from '../services/map-suggestions.service';
 import {MapSuggestion} from '../../../models/map-suggestion.model';
-import {Observable} from 'rxjs';
-import {Directions} from '../../../models/directions.model';
+import {Observable, Subject} from 'rxjs';
 
 @Component({
   selector: 'app-location-input',
@@ -11,19 +10,22 @@ import {Directions} from '../../../models/directions.model';
 })
 export class LocationInputComponent implements OnInit {
 
-  @Output() directions: EventEmitter<Directions> = new EventEmitter<Directions>();
+  @Input() sessiontoken = '';
+  @Output() directions: EventEmitter<string> = new EventEmitter<string>();
 
   public suggestions$: Observable<Array<MapSuggestion>>;
-
+  private queries$: Subject<{input: string, sessiontoken: string}> = new Subject();
   public shouldDisplay = false;
   public location = '';
 
   constructor(private mapSuggestionsService: MapSuggestionsService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.suggestions$ = this.mapSuggestionsService.getSuggestions(this.queries$);
+  }
 
   public getSuggestions(): void {
-    this.suggestions$ = this.mapSuggestionsService.getSuggestions(this.location);
+    this.queries$.next({input: this.location, sessiontoken: this.sessiontoken});
   }
 
   public displaySuggestions(shouldDisplay: boolean, delay = 0): void {
@@ -31,7 +33,7 @@ export class LocationInputComponent implements OnInit {
   }
 
   public applySuggestion(suggestion: MapSuggestion): void {
-    this.location = suggestion.name;
-    this.directions.emit({lat: suggestion.lat, lng: suggestion.lng});
+    this.location = suggestion.description;
+    this.directions.emit(this.location);
   }
 }

@@ -1,28 +1,26 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {MapSuggestion} from '../../../models/map-suggestion.model';
+import {debounceTime, switchMap} from 'rxjs/operators';
+import {DataService} from '../../../../core/services/data.service';
+import {Urls} from '../../../../../assets/configs/urls';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MapSuggestionsService {
 
-  private readonly suggestions: Array<MapSuggestion> = [
-    {
-      name: 'Vazha Pshavela Ave',
-      lat: 41.7260234,
-      lng: 44.7449978
-    },
-    {
-      name: 'Illia Chavchavadze Ave',
-      lat: 41.7155266,
-      lng: 44.7647105
-    },
-  ];
+  constructor(private dataService: DataService) { }
 
-  constructor() { }
+  public getSuggestions(queries: Observable<{input: string, sessiontoken: string}>): Observable<Array<MapSuggestion>> {
+    return queries.pipe(
+        debounceTime(500),
+        switchMap(data => this.fetchSuggestions(data.input, data.sessiontoken)),
+      );
+  }
 
-  public getSuggestions(str: string): Observable<Array<MapSuggestion>> {
-    return of(this.suggestions);
+  private fetchSuggestions(input: string, sessiontoken: string): Observable<Array<MapSuggestion>> {
+    return this.dataService
+      .get(`${Urls.PLACE_SUGGESTIONS}/${input}/${sessiontoken}`);
   }
 }
