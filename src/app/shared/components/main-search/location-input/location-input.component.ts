@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {MapSuggestionsService} from '../services/map-suggestions.service';
+import {MapSuggestion} from '../../../models/map-suggestion.model';
+import {Observable} from 'rxjs';
+import {Directions} from '../../../models/directions.model';
 
 @Component({
   selector: 'app-location-input',
@@ -7,26 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationInputComponent implements OnInit {
 
-  public suggestions = [
-    {type: 'banner', text: '1024123232'},
-    {type: 'location', text: 'Tsotne Dadiani St.'},
-    {type: 'location', text: 'Vake'},
-    {type: 'location', text: 'Nutsubidze I mikro raioni pirveli korpusi'},
-  ];
+  @Output() directions: EventEmitter<Directions> = new EventEmitter<Directions>();
+
+  public suggestions$: Observable<Array<MapSuggestion>>;
 
   public shouldDisplay = false;
   public location = '';
 
-  constructor() { }
+  constructor(private mapSuggestionsService: MapSuggestionsService) { }
 
   ngOnInit(): void {}
+
+  public getSuggestions(): void {
+    this.suggestions$ = this.mapSuggestionsService.getSuggestions(this.location);
+  }
 
   public displaySuggestions(shouldDisplay: boolean, delay = 0): void {
     setTimeout(() => this.shouldDisplay = shouldDisplay, delay);
   }
 
-  public applySuggestion(suggestion: string): void {
-    console.log(suggestion);
-    this.location = suggestion;
+  public applySuggestion(suggestion: MapSuggestion): void {
+    this.location = suggestion.name;
+    this.directions.emit({lat: suggestion.lat, lng: suggestion.lng});
   }
 }

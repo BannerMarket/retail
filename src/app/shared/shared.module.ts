@@ -12,6 +12,7 @@ import { CheckboxComponent } from './components/reusable/checkbox/checkbox.compo
 import { MinifiedMainSearchComponent } from './components/main-search/minified-main-search/minified-main-search.component';
 import { CategoriesInputComponent } from './components/main-search/categories-input/categories-input.component';
 import { CategorySelectionComponent } from './components/reusable/category-selection/category-selection.component';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -29,11 +30,12 @@ import { CategorySelectionComponent } from './components/reusable/category-selec
     CategoriesInputComponent,
     CategorySelectionComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule
+    ],
   exports: [
     HeaderComponent,
     ButtonComponent,

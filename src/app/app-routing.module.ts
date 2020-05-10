@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomeModule',
     pathMatch: 'full'
   },
+  {
+    path: 'banners',
+    loadChildren: './banners/banners.module#BannersModule',
+  },
 ];
 
 @NgModule({

@@ -3,12 +3,11 @@
 <header class="header page-padding flex--align-center flex--space-between"
         [ngClass]="{'header--scrolled': scrolled}">
   <div>
-    <h5 class="header__title">{{'header.title' | translate | async}}</h5>
+    <h5 class="header__title cursor--pointer"
+        [routerLink]="['/']">
+      {{'header.title' | translate | async}}
+    </h5>
   </div>
-
-<!--  <div>-->
-<!--      <app-minified-main-search></app-minified-main-search>-->
-<!--  </div>-->
 
   <div class="flex--align-center">
     <app-language-selector></app-language-selector>

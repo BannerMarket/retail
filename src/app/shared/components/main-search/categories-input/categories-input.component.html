@@ -5,6 +5,7 @@
                   [value]="_result"
                   [readonly]="true"
                   [highlighted]="focused"
+                  (focus)="focused = true"
                   (clear)="clear()"></app-form-input>
 
   <div *ngIf="focused && groups" class="categories">

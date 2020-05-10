@@ -3,16 +3,17 @@
                   [placeholder]="'Enter city, place, street or id...'"
                   [withSuggestions]="true"
                   [(ngModel)]="location"
+                  (keyup)="getSuggestions()"
                   (focus)="displaySuggestions(true)"
                   (blur)="displaySuggestions(false, 200)"
   ></app-form-input>
 
   <div *ngIf="shouldDisplay" class="location__suggestions">
-    <div *ngFor="let suggestion of suggestions"
+    <div *ngFor="let suggestion of suggestions$ | async"
          class="suggestion flex--align-center"
-         (click)="applySuggestion(suggestion.text)">
-      <div class="suggestion__type suggestion__type--{{suggestion.type}} flex--center"></div>
-      <p class="suggestion__text">{{suggestion.text}}</p>
+         (click)="applySuggestion(suggestion)">
+      <div class="suggestion__type suggestion__type--location flex--center"></div>
+      <p class="suggestion__text">{{suggestion.name}}</p>
     </div>
   </div>
 </div>
