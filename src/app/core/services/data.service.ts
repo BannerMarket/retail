@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Urls} from '../../../assets/configs/urls';
 import {map} from 'rxjs/operators';
+import {LanguageService} from './language.service';
+import {LocalStorage} from '../global/local-storage';
+import {Language} from '../models/language';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +15,46 @@ export class DataService {
   constructor(private httpClient: HttpClient) { }
 
   public get(url: string, params: object = {}): Observable<any> {
-    return this.httpClient.get(Urls.ROOT + url + '?' + this.toGetParams(params))
+    const options = { params: this.getParams(params) };
+
+    return this.httpClient.get(Urls.ROOT + url, options)
       .pipe(map(this.handleSuccessfulResponse));
   }
 
-  private toGetParams(params: object): string {
-    return Array.from(Object.keys(params))
-      .reduce((res, key) => res + `${key}=${params[key]}&`, '');
+  public post(url: string, params: object = {}): Observable<any> {
+    return this.httpClient.post(Urls.ROOT + url, {language: this.getRequestLanguage(), ...params})
+      .pipe(map(this.handleSuccessfulResponse));
   }
 
   private handleSuccessfulResponse(response: any): any {
     return response && response.data ? response.data : undefined;
+  }
+
+  private getParams(params: object): HttpParams {
+    let p = new HttpParams();
+
+    Object.keys(params).forEach(param => {
+      p = p.append(param, params[param]);
+    });
+
+    if (!params['language']) {
+      p = p.append('language', this.getRequestLanguage());
+    }
+
+    return p;
+  }
+
+  private getRequestLanguage(): Language {
+    try {
+      const language = LocalStorage.getItem(LanguageService.LOCAL_STORAGE_KEY);
+
+      if (language && language === Language.ge || language === Language.en) {
+        return language;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+
+    return LanguageService.DEFAULT_LANGUAGE;
   }
 }

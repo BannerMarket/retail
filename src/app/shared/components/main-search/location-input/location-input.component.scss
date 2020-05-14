@@ -13,6 +13,7 @@
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
     padding: 16px 0;
+    position: relative;
   }
 }
 
@@ -66,4 +67,9 @@
     font-size: 16px;
     margin-left: 16px;
   }
+}
+
+.google {
+  height: 12px;
+  margin-right: 22px;
 }

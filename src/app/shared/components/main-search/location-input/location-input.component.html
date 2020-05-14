@@ -1,19 +1,26 @@
 <div class="location">
   <app-form-input [label]="'location'"
+                  [tabIndex]="1"
                   [placeholder]="'Enter city, place, street or id...'"
                   [withSuggestions]="true"
                   [(ngModel)]="location"
+                  (clear)="clear()"
                   (keyup)="getSuggestions()"
                   (focus)="displaySuggestions(true)"
-                  (blur)="displaySuggestions(false, 200)"
+                  (blur)="displaySuggestions(false, 300)"
   ></app-form-input>
 
   <div *ngIf="shouldDisplay" class="location__suggestions">
-    <div *ngFor="let suggestion of suggestions$ | async"
+    <div *ngFor="let suggestion of suggestions"
          class="suggestion flex--align-center"
          (click)="applySuggestion(suggestion)">
       <div class="suggestion__type suggestion__type--location flex--center"></div>
-      <p class="suggestion__text">{{suggestion.description}}</p>
+      <div class="flex--fill">
+        <p class="suggestion__text">{{suggestion.description}}</p>
+      </div>
+    </div>
+    <div class="full-width flex--justify-flex-end">
+      <img class="google" src="../../../../../assets/images/powered_by_google_on_white.png" alt="">
     </div>
   </div>
 </div>

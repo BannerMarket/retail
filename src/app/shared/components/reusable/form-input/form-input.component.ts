@@ -6,7 +6,7 @@ import {
   OnDestroy,
   OnInit,
   Optional,
-  Output, TemplateRef, ViewChild
+  Output, ViewChild
 } from '@angular/core';
 import {ControlContainer, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {CustomControlBaseComponent} from '../../../models/custom-control-base.component';
@@ -29,8 +29,11 @@ const arrayIncludes = <T>(arr: T[]) => (value: T): boolean => arr.indexOf(value)
   ]
 })
 export class FormInputComponent extends CustomControlBaseComponent<string> implements OnInit, OnDestroy {
+
   private static SUPPORTED_TYPES = ['text', 'email', 'password', 'number', 'select'];
   private static isSupportedType = arrayIncludes(FormInputComponent.SUPPORTED_TYPES);
+
+  @ViewChild('formInput') inputComponent: ElementRef;
 
   @Input() placeholder = '';
   @Input() label = '';
@@ -40,6 +43,7 @@ export class FormInputComponent extends CustomControlBaseComponent<string> imple
   @Input() set value(value) { this.writeValue(value); }
   @Input() readonly = false;
   @Input() highlighted = false;
+  @Input() tabIndex = 1;
 
   @Output() input: EventEmitter<Event> = new EventEmitter();
   @Output() keyup: EventEmitter<Event> = new EventEmitter();
@@ -101,5 +105,11 @@ export class FormInputComponent extends CustomControlBaseComponent<string> imple
     $event.stopPropagation();
     this.writeValue('');
     this.clear.emit($event);
+  }
+
+  focusInput(): void {
+    if (this.inputComponent) {
+      this.inputComponent.nativeElement.focus();
+    }
   }
 }

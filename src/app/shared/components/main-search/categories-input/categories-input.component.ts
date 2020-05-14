@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CategoriesService} from '../../../../core/services/categories.service';
 import {take} from 'rxjs/operators';
 import {TreeNode} from '../../../../core/models/tree.model';
@@ -6,6 +6,7 @@ import {Category} from '../../../../core/models/category.model';
 import {LanguageService} from '../../../../core/services/language.service';
 import {CategorySelectionComponent} from '../../reusable/category-selection/category-selection.component';
 import {Utils} from '../../../../core/utils/utils';
+import {FormInputComponent} from '../../reusable/form-input/form-input.component';
 
 @Component({
   selector: 'app-categories-input',
@@ -15,6 +16,7 @@ import {Utils} from '../../../../core/utils/utils';
 export class CategoriesInputComponent implements OnInit {
 
   @ViewChild(CategorySelectionComponent) categorySelection: CategorySelectionComponent;
+  @ViewChild(FormInputComponent) input: FormInputComponent;
   @Input() selected: Array<string> = [];
   @Output() categories: EventEmitter<Array<Category>> = new EventEmitter();
 
@@ -28,7 +30,10 @@ export class CategoriesInputComponent implements OnInit {
     this.focused = this.eRef.nativeElement.contains(event.target);
   }
 
-  constructor(private eRef: ElementRef, private categoryService: CategoriesService, private languageService: LanguageService) { }
+  constructor(private eRef: ElementRef,
+              private changeDetectorRef: ChangeDetectorRef,
+              private categoryService: CategoriesService,
+              private languageService: LanguageService) { }
 
   ngOnInit(): void {
     this.categoryService.getCategoryGroups()
@@ -62,7 +67,7 @@ export class CategoriesInputComponent implements OnInit {
   private selectInitial(groups: Array<TreeNode<Category>>): void {
     const selectedCategories = groups
       .map(group => group.children)
-      .reduce(Utils.concatReducer)
+      .reduce(Utils.concatReducer, [])
       .map(node => node.data)
       .filter(category => this.selected.includes(category._id));
 

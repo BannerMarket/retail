@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Category} from '../../../core/models/category.model';
-import {Directions} from '../../models/directions.model';
 import { v4 as uuidv4 } from 'uuid';
+import {CategoriesInputComponent} from './categories-input/categories-input.component';
 
 @Component({
   selector: 'app-main-search',
@@ -10,9 +10,10 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class MainSearchComponent implements OnInit {
 
-  public lat: string | number;
-  public lng: string | number;
+  @ViewChild(CategoriesInputComponent) categoriesInput: CategoriesInputComponent;
+
   public categoryIds: string;
+  public address: string;
 
   public sessiontoken = '';
 
@@ -22,9 +23,8 @@ export class MainSearchComponent implements OnInit {
     this.sessiontoken = uuidv4();
   }
 
-  public setDirections(directions: Directions): void {
-    this.lat = directions.lat;
-    this.lng = directions.lng;
+  public setAddress(address: string): void {
+   this.address = address;
   }
 
   public setCategories(categories: Array<Category>): void {

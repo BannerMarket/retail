@@ -1,31 +1,45 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {MapSuggestionsService} from '../services/map-suggestions.service';
 import {MapSuggestion} from '../../../models/map-suggestion.model';
-import {Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-location-input',
   templateUrl: './location-input.component.html',
   styleUrls: ['./location-input.component.scss']
 })
-export class LocationInputComponent implements OnInit {
+export class LocationInputComponent implements OnInit, OnDestroy {
 
   @Input() sessiontoken = '';
-  @Output() directions: EventEmitter<string> = new EventEmitter<string>();
+  @Output() address: EventEmitter<string> = new EventEmitter<string>();
+  @Output() suggestionSelected: EventEmitter<string> = new EventEmitter<string>();
 
-  public suggestions$: Observable<Array<MapSuggestion>>;
-  private queries$: Subject<{input: string, sessiontoken: string}> = new Subject();
+  private subscriptions: Array<Subscription> = [];
+
+  public suggestions: Array<MapSuggestion> = [];
+  private queries$: BehaviorSubject<{input: string, sessiontoken: string}>;
   public shouldDisplay = false;
   public location = '';
 
   constructor(private mapSuggestionsService: MapSuggestionsService) { }
 
   ngOnInit(): void {
-    this.suggestions$ = this.mapSuggestionsService.getSuggestions(this.queries$);
+    this.queries$ = new BehaviorSubject({input: '', sessiontoken: this.sessiontoken});
+
+    const subscription: Subscription = this.mapSuggestionsService
+      .getSuggestions(this.queries$)
+      .subscribe(suggestions => this.suggestions = suggestions);
+
+    this.subscriptions.push(subscription);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   public getSuggestions(): void {
     this.queries$.next({input: this.location, sessiontoken: this.sessiontoken});
+    this.address.emit(this.location);
   }
 
   public displaySuggestions(shouldDisplay: boolean, delay = 0): void {
@@ -34,6 +48,12 @@ export class LocationInputComponent implements OnInit {
 
   public applySuggestion(suggestion: MapSuggestion): void {
     this.location = suggestion.description;
-    this.directions.emit(this.location);
+    this.address.emit(this.location);
+    this.suggestionSelected.emit(this.location);
+  }
+
+  public clear(): void {
+    this.location = '';
+    this.address.emit(this.location);
   }
 }
