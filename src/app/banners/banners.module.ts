@@ -6,6 +6,7 @@ import { BannerListingComponent } from './containers/banner-listing/banner-listi
 import { BannerMapComponent } from './components/banner-map/banner-map.component';
 import { BannerListComponent } from './components/banner-list/banner-list.component';
 import { BannerCardComponent } from './components/banner-card/banner-card.component';
+import {SharedModule} from '../shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { BannerCardComponent } from './components/banner-card/banner-card.compon
   declarations: [BannersComponent, BannerListingComponent, BannerMapComponent, BannerListComponent, BannerCardComponent],
   imports: [
     CommonModule,
-    BannersRoutingModule
+    BannersRoutingModule,
+    SharedModule
   ]
 })
 export class BannersModule { }

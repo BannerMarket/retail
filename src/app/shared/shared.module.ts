@@ -36,13 +36,14 @@ import {RouterModule} from '@angular/router';
         ReactiveFormsModule,
         RouterModule
     ],
-  exports: [
-    HeaderComponent,
-    ButtonComponent,
-    LanguageSelectorComponent,
-    FormInputComponent,
-    MainSearchComponent,
-    CheckboxComponent,
-  ]
+    exports: [
+        HeaderComponent,
+        ButtonComponent,
+        LanguageSelectorComponent,
+        FormInputComponent,
+        MainSearchComponent,
+        CheckboxComponent,
+        TranslatePipe,
+    ]
 })
 export class SharedModule { }

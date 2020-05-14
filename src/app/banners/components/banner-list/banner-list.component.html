@@ -1,5 +1,6 @@
-<div>
-  <div *ngFor="let banner of banners; trackBy bannerTracker">
+<div style="padding: 0 24px; box-sizing: border-box">
+  <div *ngFor="let banner of banners; trackBy bannerTracker"
+       class="item">
     <app-banner-card [banner]="banner"></app-banner-card>
   </div>
 </div>

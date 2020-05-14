@@ -4,7 +4,7 @@ import {Banner} from '../../../shared/models/banner.model';
 @Component({
   selector: 'app-banner-card',
   templateUrl: './banner-card.component.html',
-  styleUrls: ['./banner-card.component.css']
+  styleUrls: ['./banner-card.component.scss']
 })
 export class BannerCardComponent implements OnInit {
 

@@ -1,1 +1,25 @@
-<p>{{banner.title}}</p>
+<div class="flex">
+  <div>
+    <div class="image">
+      <img [src]="banner.images[0]" alt="banner photo">
+    </div>
+  </div>
+
+  <div class="info flex--fill">
+
+    <p class="info__location flex--align-center">
+      <img src="../../../../assets/icons/location-sharp.svg" alt="location"/>
+      {{banner.directions}}
+    </p>
+    <p class="info__title">{{banner.title}}</p>
+
+    <div class="flex info__categories">
+      <p *ngFor="let category of banner.categories"
+         class="info__category">
+        {{category.name | translate | async}}
+      </p>
+    </div>
+
+    <p class="info__description">{{banner.shortDescription}}</p>
+  </div>
+</div>
