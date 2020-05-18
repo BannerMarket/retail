@@ -4,3 +4,11 @@
   padding: 0;
   margin: 0;
 }
+
+.map {
+  height: calc(100vh - #{height(header)});
+  width: calc(50vw - 24px);
+  position: fixed;
+  top: height(header);
+  right: 0;
+}

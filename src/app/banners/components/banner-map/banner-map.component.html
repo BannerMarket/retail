@@ -1,1 +1,11 @@
-<p>banner-map works!</p>
+<google-map
+  height="100%"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options">
+  <map-marker *ngFor="let banner of banners"
+              [position]="{lat: banner.lat, lng: banner.lng}">
+    <div style="height: 100px; width: 100px; background: white">HELLO</div>
+  </map-marker>
+</google-map>

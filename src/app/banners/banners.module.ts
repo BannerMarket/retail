@@ -7,15 +7,17 @@ import { BannerMapComponent } from './components/banner-map/banner-map.component
 import { BannerListComponent } from './components/banner-list/banner-list.component';
 import { BannerCardComponent } from './components/banner-card/banner-card.component';
 import {SharedModule} from '../shared/shared.module';
+import {GoogleMapsModule} from '@angular/google-maps';
 
 
 
 @NgModule({
   declarations: [BannersComponent, BannerListingComponent, BannerMapComponent, BannerListComponent, BannerCardComponent],
-  imports: [
-    CommonModule,
-    BannersRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        BannersRoutingModule,
+        SharedModule,
+        GoogleMapsModule
+    ]
 })
 export class BannersModule { }
