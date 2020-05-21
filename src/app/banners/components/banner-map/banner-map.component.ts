@@ -18,7 +18,7 @@ export class BannerMapComponent implements OnInit {
     this.center.lng = lng;
   }
 
-  zoom = 17;
+  zoom = 15;
   center: google.maps.LatLngLiteral = {
     lat: 41.7222148,
     lng: 44.7584373

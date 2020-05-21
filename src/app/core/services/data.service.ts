@@ -3,7 +3,6 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Urls} from '../../../assets/configs/urls';
 import {map} from 'rxjs/operators';
-import {LanguageService} from './language.service';
 import {LocalStorage} from '../global/local-storage';
 import {Language} from '../models/language';
 
@@ -11,6 +10,9 @@ import {Language} from '../models/language';
   providedIn: 'root'
 })
 export class DataService {
+
+  public static readonly DEFAULT_LANGUAGE = Language.ge;
+  public static readonly LOCAL_STORAGE_KEY = 'LANG';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -46,7 +48,7 @@ export class DataService {
 
   private getRequestLanguage(): Language {
     try {
-      const language = LocalStorage.getItem(LanguageService.LOCAL_STORAGE_KEY);
+      const language = LocalStorage.getItem(DataService.LOCAL_STORAGE_KEY);
 
       if (language && language === Language.ge || language === Language.en) {
         return language;
@@ -55,6 +57,6 @@ export class DataService {
       console.error(e);
     }
 
-    return LanguageService.DEFAULT_LANGUAGE;
+    return DataService.DEFAULT_LANGUAGE;
   }
 }

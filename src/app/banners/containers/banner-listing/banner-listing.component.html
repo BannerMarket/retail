@@ -1,9 +1,17 @@
 <div class="half-screen-width">
-  <app-banner-list [banners]="banners"></app-banner-list>
+  <app-banner-list *ngIf="!isLoading" [banners]="banners"></app-banner-list>
+  <div *ngIf="isLoading" class="loader"></div>
+
+  <div class="paginator flex--justify-center">
+    <app-paginator *ngIf="pages" [pageCount]="pages" [route]="'/banners'"></app-paginator>
+  </div>
 </div>
 <div class="half-screen-width">
   <div class="map">
-    <app-banner-map [banners]="banners"></app-banner-map>
+    <app-banner-map *ngIf="centerLat && centerLng"
+                    [banners]="banners"
+                    [lat]="centerLat"
+                    [lng]="centerLng"></app-banner-map>
   </div>
 </div>
 

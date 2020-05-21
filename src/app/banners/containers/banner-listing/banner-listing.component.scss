@@ -1,5 +1,14 @@
 @import "../../banners.component";
 
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .row, .col-sm-6 {
   padding: 0;
   margin: 0;
@@ -11,4 +20,28 @@
   position: fixed;
   top: height(header);
   right: 0;
+}
+
+.paginator {
+  padding-bottom: 24px;
+}
+
+.loader {
+  width: 100%;
+  height: calc(100vh - #{height(header)});
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 30px;
+    width: 30px;
+    border: solid 3px color(input-border);
+    border-radius: 30px;
+    border-left: solid 3px transparent;
+
+    animation: spin 0.4s infinite;
+  }
 }

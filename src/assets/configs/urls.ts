@@ -9,4 +9,5 @@ export class Urls {
   public static readonly PLACE_SUGGESTIONS = 'places/autocomplete';
 
   public static readonly FILTER_BANNERS = 'banners/filter';
+  public static readonly COUNT_BANNERS = 'banners/count';
 }

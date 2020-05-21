@@ -11,6 +11,7 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
+        data: {logoSmallMargin: true},
         component: BannerListingComponent
       }
     ]
