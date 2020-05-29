@@ -1,1 +1,11 @@
-<p>banner-map works!</p>
+<google-map
+  *ngIf="center && center.lng && center.lat"
+  height="100%"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options">
+  <map-marker *ngFor="let banner of banners"
+              [position]="{lat: banner.lat, lng: banner.lng}">
+  </map-marker>
+</google-map>

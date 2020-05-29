@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: './home/home.module#HomeModule',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'banners',

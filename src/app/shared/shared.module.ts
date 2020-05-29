@@ -13,6 +13,7 @@ import { MinifiedMainSearchComponent } from './components/main-search/minified-m
 import { CategoriesInputComponent } from './components/main-search/categories-input/categories-input.component';
 import { CategorySelectionComponent } from './components/reusable/category-selection/category-selection.component';
 import {RouterModule} from '@angular/router';
+import { PaginatorComponent } from './components/reusable/paginator/paginator.component';
 
 
 
@@ -29,6 +30,7 @@ import {RouterModule} from '@angular/router';
     MinifiedMainSearchComponent,
     CategoriesInputComponent,
     CategorySelectionComponent,
+    PaginatorComponent,
   ],
     imports: [
         CommonModule,
@@ -36,13 +38,15 @@ import {RouterModule} from '@angular/router';
         ReactiveFormsModule,
         RouterModule
     ],
-  exports: [
-    HeaderComponent,
-    ButtonComponent,
-    LanguageSelectorComponent,
-    FormInputComponent,
-    MainSearchComponent,
-    CheckboxComponent,
-  ]
+    exports: [
+        HeaderComponent,
+        ButtonComponent,
+        LanguageSelectorComponent,
+        FormInputComponent,
+        MainSearchComponent,
+        CheckboxComponent,
+        TranslatePipe,
+        PaginatorComponent,
+    ]
 })
 export class SharedModule { }

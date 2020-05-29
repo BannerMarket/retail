@@ -4,7 +4,7 @@ import {Banner} from '../../../shared/models/banner.model';
 @Component({
   selector: 'app-banner-list',
   templateUrl: './banner-list.component.html',
-  styleUrls: ['./banner-list.component.css']
+  styleUrls: ['./banner-list.component.scss']
 })
 export class BannerListComponent implements OnInit {
 

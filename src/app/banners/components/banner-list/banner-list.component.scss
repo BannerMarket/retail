@@ -1,0 +1,11 @@
+@import "../../banners.component";
+
+.item {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: solid 1px color(input-border);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
