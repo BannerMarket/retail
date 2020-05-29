@@ -10,8 +10,7 @@
   <div class="map">
     <app-banner-map *ngIf="centerLat && centerLng"
                     [banners]="banners"
-                    [lat]="centerLat"
-                    [lng]="centerLng"></app-banner-map>
+                    [center]="{lat: centerLat, lng: centerLng}"></app-banner-map>
   </div>
 </div>
 

@@ -9,20 +9,9 @@ import {Banner} from '../../../shared/models/banner.model';
 export class BannerMapComponent implements OnInit {
 
   @Input() banners: Array<Banner> = [];
-
-  @Input() set lat(lat) {
-    this.center.lat = lat;
-  }
-
-  @Input() set lng(lng) {
-    this.center.lng = lng;
-  }
+  @Input() center: google.maps.LatLngLiteral;
 
   zoom = 15;
-  center: google.maps.LatLngLiteral = {
-    lat: 41.7222148,
-    lng: 44.7584373
-  };
   options: google.maps.MapOptions = {
     scrollwheel: false,
     disableDoubleClickZoom: true,

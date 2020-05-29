@@ -6,20 +6,23 @@
   </div>
 
   <div class="info flex--fill">
+    <div class="info__main">
+      <p class="info__title">{{banner.title}}</p>
+
+      <div class="flex info__categories">
+        <p *ngFor="let category of banner.categories"
+           class="info__category">
+          {{category.name | translate | async}}
+        </p>
+      </div>
+
+      <p class="info__description">{{banner.shortDescription}}</p>
+    </div>
+
 
     <p class="info__location flex--align-center">
       <img src="../../../../assets/icons/location-sharp.svg" alt="location"/>
       {{banner.directions}}
     </p>
-    <p class="info__title">{{banner.title}}</p>
-
-    <div class="flex info__categories">
-      <p *ngFor="let category of banner.categories"
-         class="info__category">
-        {{category.name | translate | async}}
-      </p>
-    </div>
-
-    <p class="info__description">{{banner.shortDescription}}</p>
   </div>
 </div>

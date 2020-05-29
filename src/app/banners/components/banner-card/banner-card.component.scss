@@ -16,6 +16,9 @@
 .info {
   box-sizing: border-box;
   padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__location {
     color: color(text-placeholder);
@@ -33,6 +36,7 @@
     font-size: 18px;
     color: color(text-main);
     padding-bottom: 8px;
+    text-transform: uppercase;
   }
 
   &__categories {
