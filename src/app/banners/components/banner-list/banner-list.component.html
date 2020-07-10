@@ -1,5 +1,6 @@
 <div style="padding: 0 24px; box-sizing: border-box">
   <div *ngFor="let banner of banners; trackBy bannerTracker"
+       [routerLink]="['/banners/banner', banner._id]"
        class="item">
     <app-banner-card [banner]="banner"></app-banner-card>
   </div>

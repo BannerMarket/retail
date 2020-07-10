@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {BannersComponent} from './banners.component';
 import {BannerListingComponent} from './containers/banner-listing/banner-listing.component';
+import {BannerComponent} from './containers/banner/banner.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
         pathMatch: 'full',
         data: {logoSmallMargin: true},
         component: BannerListingComponent
+      },
+      {
+        path: 'banner/:id',
+        component: BannerComponent
       }
     ]
   },

@@ -10,4 +10,7 @@ export class Urls {
 
   public static readonly FILTER_BANNERS = 'banners/filter';
   public static readonly COUNT_BANNERS = 'banners/count';
+  public static readonly BANNER_BY_ID = 'banner';
+
+  public static readonly REQUEST_PRICE = 'price-request/requests';
 }

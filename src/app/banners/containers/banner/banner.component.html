@@ -1,0 +1,41 @@
+<div class="row center-xs full-width">
+  <div class="col-xs-8">
+    <div class="banner" *ngIf="banner">
+      <p class="title">{{banner.title}}</p>
+
+      <div class="carouse">
+        <app-carousel [images]="banner.images"></app-carousel>
+      </div>
+
+      <div class="row full-width">
+        <div class="col-sm-8">
+          <div class="flex info__categories">
+            <p *ngFor="let category of banner.categories"
+               class="info__category">
+              {{category.name | translate | async}}
+            </p>
+          </div>
+
+          <p class="section">About banner</p>
+
+          <p>{{banner.fullDescription}}</p>
+
+          <p class="section section--divider">Location</p>
+          <div class="map">
+            <app-banner-map [banners]="[banner]" [center]="{lat: banner.lat, lng: banner.lng}"></app-banner-map>
+          </div>
+
+          <p class="info__location flex--align-center">
+            <img src="../../../../assets/icons/location-sharp.svg" alt="location"/>
+            {{banner.directions}}
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <div class="banner-ordering">
+            <app-banner-order></app-banner-order>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

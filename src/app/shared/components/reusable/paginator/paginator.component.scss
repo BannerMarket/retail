@@ -1,0 +1,41 @@
+@import "../../../../../styles";
+
+.paginator {
+
+  &__button {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__page {
+    background-color: transparent;
+    color: color(text-main);
+    cursor: pointer;
+
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: color(grey-shade);
+    }
+
+    &--selected {
+      color: white !important;
+      background-color: color(text-main) !important;
+    }
+
+    &--hidden {
+      padding-bottom: 10px;
+      box-sizing: border-box;
+    }
+  }
+}
+

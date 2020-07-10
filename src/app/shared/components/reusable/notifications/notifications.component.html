@@ -1,0 +1,7 @@
+<div class="notifications">
+  <div *ngFor="let notification of notifications; trackBy trackNotifications"
+       class="notification"
+       [ngClass]="{'notification--disappears': disappears(notification.id)}">
+    <app-notification [notification]="notification"></app-notification>
+  </div>
+</div>

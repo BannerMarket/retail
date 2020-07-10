@@ -1,0 +1,9 @@
+@import "../styles";
+
+.notifications {
+  width: $notifications-width;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-notifications;
+}

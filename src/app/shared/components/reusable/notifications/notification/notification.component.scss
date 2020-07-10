@@ -1,0 +1,43 @@
+@import "../../../../../../styles";
+
+.notification {
+  width: 100%;
+  border-radius: $border-radius-medium;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  &--success {
+    .notification__body svg {
+      fill: color(success);
+    }
+  }
+
+  &--error {
+    .notification__body svg {
+      fill: color(error);
+    }
+  }
+
+  &__header {
+
+  }
+
+  &__body {
+    padding: 22px;
+
+    svg {
+      height: 24px;
+      width: 24px;
+      margin-right: 22px;
+    }
+  }
+
+  &__footer {
+    padding: 0 22px 22px 22px;
+    font-size: 12px;
+  }
+}
+
+.highlighted {
+  cursor: pointer;
+  color: color(brand-main);
+}

@@ -1,0 +1,39 @@
+@import "../../banners.component";
+
+.banner {
+  width: 100%;
+  text-align: left;
+  padding-bottom: 120px;
+}
+
+.title {
+  font-size: 26px;
+  color: color(text);
+}
+
+.carouse {
+  border-radius: $border-radius;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.info__categories,
+.info__location,
+.banner-ordering {
+  margin-top: 12px;
+}
+
+.map {
+  width: 100%;
+  height: 200px;
+}
+
+.section {
+  font-size: 20px;
+  padding: 26px 0 16px 0;
+
+  &--divider {
+    border-top: solid 1px color(input-border);
+    margin-top: 26px;
+  }
+}

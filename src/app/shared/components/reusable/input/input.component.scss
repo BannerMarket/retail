@@ -1,0 +1,74 @@
+@import "../../../../../styles";
+
+.input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: color(text-main);
+  width: 100%;
+  position: absolute;
+  bottom: 8px;
+  box-sizing: border-box;
+  padding-right: 24px;
+
+  &::placeholder {
+    font-size: 14px;
+    color: color(text-placeholder);
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: height(medium-input);
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: solid 1px color(input-border);
+    position: relative;
+
+    transition: border 0.2s ease-in-out;
+
+    &--focused {
+      .input__label {
+        transform: translateY(-10px) scale(0.8);
+      }
+    }
+
+    &--error {
+      border: solid 1px color(error);
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    color: color(text-placeholder);
+    pointer-events: none;
+    position: absolute;
+    left: 12px;
+    transform: translateY(0) scale(1);
+    transform-origin: left;
+    transition: transform 0.23s;
+  }
+}
+
+.select {
+  height: height(medium-input);
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  &__value {
+    font-size: 16px;
+    color: color(text-main);
+    position: absolute;
+    bottom: 8px;
+    pointer-events: none;
+  }
+
+  option {
+    color: color(text-main);
+  }
+}
