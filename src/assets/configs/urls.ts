@@ -13,4 +13,5 @@ export class Urls {
   public static readonly BANNER_BY_ID = 'banner';
 
   public static readonly REQUEST_PRICE = 'price-request/requests';
+  public static readonly HERO_IMAGES = 'hero-images';
 }
