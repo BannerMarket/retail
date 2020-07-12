@@ -9,4 +9,13 @@
   <div *ngIf="images.length > 0" class="carouse">
     <app-carousel [images]="images"></app-carousel>
   </div>
+
+  <h3 class="title">{{'home.promoted_banners.title' | translate | async}}</h3>
+  <div class="row">
+    <div *ngFor="let banner of banners" class="col-sm-4">
+      <div class="banner">
+        <app-promoted-banner [banner]="banner"></app-promoted-banner>
+      </div>
+    </div>
+  </div>
 </div>

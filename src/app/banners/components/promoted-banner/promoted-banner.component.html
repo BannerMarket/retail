@@ -1,0 +1,9 @@
+<div class="card" [routerLink]="['/banners/banner/', banner._id]">
+  <div class="card__img" [ngStyle]="{backgroundImage: 'url(' + banner.images[0] + ')'}"></div>
+  <div class="card__description">
+    <p class="title">{{banner.title}}</p>
+    <p class="location">{{banner.directions}}</p>
+  </div>
+
+  <span class="card__badge">{{'promoted_banner.available.badge' | translate | async}}</span>
+</div>
