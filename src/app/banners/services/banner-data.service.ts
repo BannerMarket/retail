@@ -14,4 +14,8 @@ export class BannerDataService {
   public getBanner(id: string | number): Observable<Banner> {
     return this.dataService.get(`${Urls.BANNER_BY_ID}/${id}`);
   }
+
+  public getPromotedBanners(): Observable<Array<Banner>> {
+    return this.dataService.get(Urls.PROMOTED_BANNERS);
+  }
 }
