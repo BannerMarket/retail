@@ -1,7 +1,7 @@
 <div class="category-input">
-  <app-form-input [label]="'Categories'"
+  <app-form-input [label]="'home.search.categories' | translate | async"
                   [tabIndex]="2"
-                  [placeholder]="'Add categories...'"
+                  [placeholder]="'home.search.add_categories' | translate | async"
                   [withSuggestions]="true"
                   [value]="_result"
                   [readonly]="true"

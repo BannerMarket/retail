@@ -17,7 +17,8 @@
 
   <a *ngIf="displayHiddenRight"
      class="paginator__button paginator__page--hidden">…</a>
-  <a class="paginator__button paginator__page"
+  <a *ngIf="pageCount > 1"
+     class="paginator__button paginator__page"
      [ngClass]="{'paginator__page--selected': selectedPage === pageCount}"
      queryParamsHandling="merge"
      [routerLink]="[route]"

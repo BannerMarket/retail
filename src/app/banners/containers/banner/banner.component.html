@@ -16,11 +16,11 @@
             </p>
           </div>
 
-          <p class="section">About banner</p>
+          <p class="section">{{'banner.about' | translate | async}}</p>
 
           <p>{{banner.fullDescription}}</p>
 
-          <p class="section section--divider">Location</p>
+          <p class="section section--divider">{{'home.search.location' | translate | async}}</p>
           <div class="map">
             <app-banner-map [banners]="[banner]" [center]="{lat: banner.lat, lng: banner.lng}"></app-banner-map>
           </div>
