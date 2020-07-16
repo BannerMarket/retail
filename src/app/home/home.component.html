@@ -12,7 +12,7 @@
 
   <h3 class="title">{{'home.promoted_banners.title' | translate | async}}</h3>
   <div class="row">
-    <div *ngFor="let banner of banners" class="col-sm-4">
+    <div *ngFor="let banner of banners" class="col-lg-4 col-md-6 col-xs-12">
       <div class="banner">
         <app-promoted-banner [banner]="banner"></app-promoted-banner>
       </div>
