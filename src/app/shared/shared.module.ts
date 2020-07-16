@@ -20,6 +20,7 @@ import {InputComponent} from './components/reusable/input/input.component';
 import {ModalComponent} from './components/reusable/modal/modal.component';
 import {NotificationsComponent} from './components/reusable/notifications/notifications.component';
 import {NotificationComponent} from './components/reusable/notifications/notification/notification.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import {NotificationComponent} from './components/reusable/notifications/notific
     ModalComponent,
     NotificationsComponent,
     NotificationComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -49,20 +51,21 @@ import {NotificationComponent} from './components/reusable/notifications/notific
     RouterModule,
     NgxHmCarouselModule
   ],
-  exports: [
-    HeaderComponent,
-    ButtonComponent,
-    LanguageSelectorComponent,
-    FormInputComponent,
-    MainSearchComponent,
-    CheckboxComponent,
-    TranslatePipe,
-    PaginatorComponent,
-    CarouselComponent,
-    InputComponent,
-    ModalComponent,
-    NotificationsComponent,
-    NotificationComponent,
-  ]
+    exports: [
+        HeaderComponent,
+        ButtonComponent,
+        LanguageSelectorComponent,
+        FormInputComponent,
+        MainSearchComponent,
+        CheckboxComponent,
+        TranslatePipe,
+        PaginatorComponent,
+        CarouselComponent,
+        InputComponent,
+        ModalComponent,
+        NotificationsComponent,
+        NotificationComponent,
+        FooterComponent,
+    ]
 })
 export class SharedModule { }
