@@ -14,7 +14,13 @@ import { CategoriesInputComponent } from './components/main-search/categories-in
 import { CategorySelectionComponent } from './components/reusable/category-selection/category-selection.component';
 import {RouterModule} from '@angular/router';
 import { PaginatorComponent } from './components/reusable/paginator/paginator.component';
-
+import { CarouselComponent } from './components/reusable/carousel/carousel.component';
+import {NgxHmCarouselModule} from 'ngx-hm-carousel';
+import {InputComponent} from './components/reusable/input/input.component';
+import {ModalComponent} from './components/reusable/modal/modal.component';
+import {NotificationsComponent} from './components/reusable/notifications/notifications.component';
+import {NotificationComponent} from './components/reusable/notifications/notification/notification.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -31,13 +37,20 @@ import { PaginatorComponent } from './components/reusable/paginator/paginator.co
     CategoriesInputComponent,
     CategorySelectionComponent,
     PaginatorComponent,
+    CarouselComponent,
+    InputComponent,
+    ModalComponent,
+    NotificationsComponent,
+    NotificationComponent,
+    FooterComponent,
   ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterModule
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    NgxHmCarouselModule
+  ],
     exports: [
         HeaderComponent,
         ButtonComponent,
@@ -47,6 +60,12 @@ import { PaginatorComponent } from './components/reusable/paginator/paginator.co
         CheckboxComponent,
         TranslatePipe,
         PaginatorComponent,
+        CarouselComponent,
+        InputComponent,
+        ModalComponent,
+        NotificationsComponent,
+        NotificationComponent,
+        FooterComponent,
     ]
 })
 export class SharedModule { }

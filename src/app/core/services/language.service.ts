@@ -50,6 +50,8 @@ export class LanguageService {
       console.error(e);
     }
 
+    location.reload();
+
     this.selectedLanguage.next(language);
     this.getDictionary(language);
   }

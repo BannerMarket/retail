@@ -1,0 +1,19 @@
+<div class="modal__bg"
+     *ngIf="isVisible"
+     [ngClass]="{'modal__bg--visible': isVisible}"
+     (click)="close($event)">
+
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal__header flex--center">
+      {{title}}
+      <app-button (click)="close($event)">
+        <img src="../../../../../assets/icons/close-outline.svg" alt="">
+      </app-button>
+    </div>
+
+    <div *ngIf="contentRef" class="modal__content">
+      <ng-container [ngTemplateOutlet]="contentRef"></ng-container>
+    </div>
+  </div>
+
+</div>

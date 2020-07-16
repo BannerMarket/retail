@@ -1,0 +1,38 @@
+@import "../../banners.component";
+
+.card {
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 6px 16px;
+  border-radius: $border-radius;
+  border: solid 1px color(input-border);
+  padding: 20px;
+}
+
+.phone-number {
+  margin-top: 24px;
+}
+
+.request {
+  height: 56px;
+  background-color: #FF385C;
+  color: white;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 12px;
+  box-shadow: 0 0 0 rgba(255, 56, 92, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--disabled {
+    background-color: color(input-border);
+  }
+}
+
+.note {
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  margin-top: 12px;
+}

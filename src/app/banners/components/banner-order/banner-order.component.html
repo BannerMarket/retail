@@ -1,0 +1,20 @@
+<div class="card full-width">
+  <p>{{'request-pricing' | translate | async}}</p>
+
+  <form *ngIf="formGroup"
+        class="phone-number"
+        [formGroup]="formGroup"
+        (ngSubmit)="request()">
+    <app-input [placeholder]="'common.phone-number' | translate | async"
+               [formControlName]="'phone'">
+    </app-input>
+
+    <div class="request"
+         (click)="request()"
+         [ngClass]="{'request--disabled': !formValid}">
+      {{'common.request' | translate | async}}
+    </div>
+  </form>
+
+  <p class="note">{{'banner.wont_be_charged' | translate | async}}</p>
+</div>

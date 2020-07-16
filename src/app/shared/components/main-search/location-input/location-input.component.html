@@ -1,7 +1,7 @@
 <div class="location">
-  <app-form-input [label]="'location'"
+  <app-form-input [label]="'home.search.location' | translate | async"
                   [tabIndex]="1"
-                  [placeholder]="'Enter city, place, street or id...'"
+                  [placeholder]="'home.search.location_description' | translate | async"
                   [withSuggestions]="true"
                   [(ngModel)]="location"
                   (clear)="clear()"

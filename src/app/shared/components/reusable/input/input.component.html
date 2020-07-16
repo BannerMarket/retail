@@ -1,0 +1,43 @@
+<div class="input__wrapper flex--align-center"
+     [ngClass]="{
+     'input__wrapper--focused': focused || !isEmpty,
+     'input__wrapper--error': getShowError}">
+  <label *ngIf="placeholder" class="input__label">
+    {{placeholder}}
+  </label>
+
+  <ng-container *ngIf="type === 'text'">
+    <input class="input"
+           #formInput
+           [type]="type"
+           [disabled]="disabled"
+           [readOnly]="readonly"
+           [ngModelOptions]="ngModelOptions"
+           [(ngModel)]="ngModel"
+           (input)="input.next($event)"
+           (keyup)="keyup.next($event)"
+           (click)="click.next($event)"
+           (focus)="focus.next($event)"
+           (blur)="blur.next($event)">
+  </ng-container>
+
+  <ng-container *ngIf="type === 'select'">
+    <p class="select__value">{{toOptionName(ngModel)}}</p>
+
+    <select class="select"
+            #formSelect
+            [disabled]="disabled"
+            [ngModelOptions]="ngModelOptions"
+            [(ngModel)]="ngModel"
+            (input)="input.next($event)"
+            (keyup)="keyup.next($event)"
+            (click)="click.next($event)"
+            (focus)="focus.next($event)"
+            (blur)="blur.next($event)">
+      <option *ngFor="let option of options"
+              [value]="option.value">
+        {{option.name}}
+      </option>
+    </select>
+  </ng-container>
+</div>

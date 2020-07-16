@@ -1,0 +1,52 @@
+@import "../../banners.component";
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px 0;
+  width: 100%;
+  border-radius: $border-radius;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  position: relative;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0 6px 10px 0;
+  }
+
+  &__img {
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  &__description {
+    padding: 12px 16px;
+  }
+}
+
+.title {
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.location {
+  margin-top: 4px;
+  font-size: 11px;
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__badge {
+  font-size: 10px;
+  padding: 4px 6px;
+  border-radius: $border-radius-small;
+  position: absolute;
+  background: white;
+  left: 16px;
+  top: 16px;
+}

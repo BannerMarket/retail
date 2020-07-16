@@ -1,12 +1,25 @@
 <div class="page-padding">
   <div class="search">
     <div class="search__label">
-      <span>Search for banners anywhere in Georgia</span>
+      <span>{{'home.search_description' | translate | async}}</span>
     </div>
     <app-main-search></app-main-search>
   </div>
 
-  <div style="margin-bottom: 1000px; height: 400px; width: 100%; margin-top: 70px; border-radius: 12px; background-size: cover; background-position: center center; background-image: url('https://images.unsplash.com/photo-1489091379659-9b66b60f6954?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80')">
-
+  <div *ngIf="images.length > 0" class="carouse">
+    <app-carousel [images]="images"></app-carousel>
   </div>
+
+  <h3 class="title">{{'home.promoted_banners.title' | translate | async}}</h3>
+  <div class="row">
+    <div *ngFor="let banner of banners" class="col-sm-4">
+      <div class="banner">
+        <app-promoted-banner [banner]="banner"></app-promoted-banner>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <app-footer></app-footer>
 </div>

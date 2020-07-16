@@ -20,18 +20,6 @@
   flex-direction: column;
   justify-content: space-between;
 
-  &__location {
-    color: color(text-placeholder);
-    font-size: 14px;
-
-    img {
-      height: 14px;
-      width: 14px;
-      opacity: 0.4;
-      margin-right: 5px;
-    }
-  }
-
   &__title {
     font-size: 18px;
     color: color(text-main);
@@ -41,31 +29,6 @@
 
   &__categories {
     flex-wrap: wrap;
-  }
-
-  &__category {
-    color: color(text-placeholder);
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-
-    &:after {
-      display: block;
-      content: '';
-      height: 3px;
-      width: 3px;
-      border-radius: 50%;
-      margin: 0 6px;
-      background-color: color(text-placeholder);
-    }
-
-    &:last-child {
-
-      &:after {
-        display: none;
-      }
-    }
   }
 
   &__description {
