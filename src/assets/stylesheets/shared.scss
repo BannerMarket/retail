@@ -10,6 +10,24 @@
   }
 }
 
+@media screen and (max-width: 760px) {
+  .hide-on-small {
+    display: none !important;
+  }
+
+  .expand-on-small {
+    width: 100vw !important;
+  }
+
+  .no-padding-on-small {
+    padding: 0 !important;
+  }
+
+  .no-margin-on-small {
+    margin: 0 !important;
+  }
+}
+
 .page-padding {
   padding: 0 160px;
 }

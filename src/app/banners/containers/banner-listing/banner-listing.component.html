@@ -1,4 +1,4 @@
-<div class="half-screen-width">
+<div class="half-screen-width expand-on-small">
   <app-banner-list *ngIf="!isLoading" [banners]="banners"></app-banner-list>
   <div *ngIf="isLoading" class="loader"></div>
 
@@ -6,7 +6,7 @@
     <app-paginator *ngIf="pages" [pageCount]="pages" [route]="'/banners'"></app-paginator>
   </div>
 </div>
-<div class="half-screen-width">
+<div class="half-screen-width hide-on-small">
   <div class="map">
     <app-banner-map *ngIf="centerLat && centerLng"
                     [banners]="banners"
