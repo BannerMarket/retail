@@ -1,43 +1,43 @@
-<!--<div class="search flex&#45;&#45;align-center">-->
-<!--  <div class="flex&#45;&#45;fill">-->
-<!--    <app-location-input [sessiontoken]="sessiontoken"-->
-<!--                        (address)="setAddress($event)">-->
-<!--    </app-location-input>-->
-<!--  </div>-->
-<!--  <div class="search__divider"></div>-->
-<!--  <div class="flex&#45;&#45;fill">-->
-<!--    <app-categories-input (categories)="setCategories($event)"></app-categories-input>-->
-<!--  </div>-->
-
-<!--  <button class="search__button flex&#45;&#45;center cursor&#45;&#45;pointer"-->
-<!--          (click)="search()"-->
-<!--          [routerLink]="['/banners']" [queryParams]="{address: address, categories: categoryIds}">-->
-<!--    <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><path d='M464,428,339.92,303.9a160.48,160.48,0,0,0,30.72-94.58C370.64,120.37,298.27,48,209.32,48S48,120.37,48,209.32s72.37,161.32,161.32,161.32a160.48,160.48,0,0,0,94.58-30.72L428,464ZM209.32,319.69A110.38,110.38,0,1,1,319.69,209.32,110.5,110.5,0,0,1,209.32,319.69Z'/></svg>-->
-<!--    Search-->
-<!--  </button>-->
-<!--</div>-->
-
-<div class="row">
-  <div class="col-xs-12">
-    <div style="z-index: 2">
-      <app-location-input [sessiontoken]="sessiontoken"
-                          (address)="setAddress($event)">
-      </app-location-input>
-    </div>
+<div class="search flex--align-center">
+  <div class="flex--fill">
+    <app-location-input [sessiontoken]="sessiontoken"
+                        (address)="setAddress($event)">
+    </app-location-input>
+  </div>
+  <div class="search__divider"></div>
+  <div class="flex--fill">
+    <app-categories-input (categories)="setCategories($event)"></app-categories-input>
   </div>
 
-  <div class="col-xs-12">
-    <div>
-      <app-categories-input (categories)="setCategories($event)"></app-categories-input>
-    </div>
-  </div>
-
-  <div class="col-xs-12">
-    <button class="search__button flex--center cursor--pointer search__button--mobile"
-            (click)="search()"
-            [routerLink]="['/banners']" [queryParams]="{address: address, categories: categoryIds}">
-      <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><path d='M464,428,339.92,303.9a160.48,160.48,0,0,0,30.72-94.58C370.64,120.37,298.27,48,209.32,48S48,120.37,48,209.32s72.37,161.32,161.32,161.32a160.48,160.48,0,0,0,94.58-30.72L428,464ZM209.32,319.69A110.38,110.38,0,1,1,319.69,209.32,110.5,110.5,0,0,1,209.32,319.69Z'/></svg>
-      Search
-    </button>
-  </div>
+  <button class="search__button flex--center cursor--pointer"
+          (click)="search()"
+          [routerLink]="['/banners']" [queryParams]="{address: address, categories: categoryIds}">
+    <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><path d='M464,428,339.92,303.9a160.48,160.48,0,0,0,30.72-94.58C370.64,120.37,298.27,48,209.32,48S48,120.37,48,209.32s72.37,161.32,161.32,161.32a160.48,160.48,0,0,0,94.58-30.72L428,464ZM209.32,319.69A110.38,110.38,0,1,1,319.69,209.32,110.5,110.5,0,0,1,209.32,319.69Z'/></svg>
+    Search
+  </button>
 </div>
+
+<!--<div class="row">-->
+<!--  <div class="col-xs-12">-->
+<!--    <div style="z-index: 2">-->
+<!--      <app-location-input [sessiontoken]="sessiontoken"-->
+<!--                          (address)="setAddress($event)">-->
+<!--      </app-location-input>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="col-xs-12">-->
+<!--    <div>-->
+<!--      <app-categories-input (categories)="setCategories($event)"></app-categories-input>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="col-xs-12">-->
+<!--    <button class="search__button flex&#45;&#45;center cursor&#45;&#45;pointer search__button&#45;&#45;mobile"-->
+<!--            (click)="search()"-->
+<!--            [routerLink]="['/banners']" [queryParams]="{address: address, categories: categoryIds}">-->
+<!--      <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><path d='M464,428,339.92,303.9a160.48,160.48,0,0,0,30.72-94.58C370.64,120.37,298.27,48,209.32,48S48,120.37,48,209.32s72.37,161.32,161.32,161.32a160.48,160.48,0,0,0,94.58-30.72L428,464ZM209.32,319.69A110.38,110.38,0,1,1,319.69,209.32,110.5,110.5,0,0,1,209.32,319.69Z'/></svg>-->
+<!--      Search-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
